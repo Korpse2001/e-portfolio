@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Singh Gandi - B.Tech CSE | PESE Lab Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* PESE Labs - Blue theme */
+        .peselab {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .peselab-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .peselab-header {
+            margin-bottom: 4rem;
+        }
+
+        .peselab-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .peselab-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .lab-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            text-align: left;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .lab-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .lab-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+
+        .skills-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        /* Assignments Section */
+        .assignments {
+            background: white;
+        }
+
+        .assignments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .assignment-card {
+            background: #f8f9ff;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .assignment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .assignment-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
+        }
+
+        .assignment-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .assignment-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .assignment-desc {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102,126,234,0.4);
+        }
+
+        /* Projects */
+        .projects {
+            background: #f8f9ff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card, .contact-link {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-card:hover, .contact-link:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .labs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Sahil Singh Gandi</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#peselab">PESE Labs</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" style="animation: fadeInUp 1s ease;">
+                <h1>Sahil Singh Gandi</h1>
+                <div class="hero-badge">B.Tech CSE | 4th Semester</div>
+                <p style="font-size: 1.5rem; margin-bottom: 2rem;">PESE Lab - E-Portfolio & Learning Journey</p>
+                <a href="#peselab" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none;">View PESE Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PESE Labs -->
+    <section id="peselab" class="peselab">
+        <div class="container">
+            <div class="peselab-content">
+                <div class="peselab-header">
+                    <h2 class="peselab-title">PESE LAB LEARNING</h2>
+                    <p class="peselab-subtitle">Professional & Soft Skills Enhancement - My Learning Outcomes</p>
+                </div>
+
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-number">Lab 1</div>
+                        <h3 class="lab-title">E-Portfolio</h3>
+                        <ul class="skills-list">
+                            <li>Self-Assessment of Skills</li>
+                            <li>Better Organization of Work</li>
+                            <li>Understanding Professional Presentation</li>
+                            <li>Improved Technical Skills</li>
+                            <li>Documentation Skills</li>
+                            <li>Reflection on Learning Journey</li>
+                            <li>Communication Skills</li>
+                            <li>Importance of Continuous Learning</li>
+                            <li>Personal Branding Awareness</li>
+                            <li>Confidence in Showcasing Work</li>
+                        </ul>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-number">Lab 2</div>
+                        <h3 class="lab-title">Presentation</h3>
+                        <ul class="skills-list">
+                            <li>Public speaking skills</li>
+                            <li>Body language awareness</li>
+                            <li>Eye contact maintenance</li>
+                            <li>Slide designing skills</li>
+                            <li>Content research skills</li>
+                            <li>Structured communication</li>
+                            <li>Team coordination</li>
+                            <li>Voice modulation</li>
+                            <li>Handling questions confidently</li>
+                            <li>Professionalism</li>
+                        </ul>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-number">Lab 3</div>
+                        <h3 class="lab-title">Self-Profiling Sheet</h3>
+                        <ul class="skills-list">
+                            <li>Self-awareness</li>
+                            <li>Identifying strengths</li>
+                            <li>Recognizing weaknesses</li>
+                            <li>Goal clarity</li>
+                            <li>Skill gap analysis</li>
+                            <li>Achievement reflection</li>
+                            <li>Value identification</li>
+                            <li>Confidence building</li>
+                            <li>Career direction</li>
+                            <li>Personal branding</li>
+                        </ul>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-number">Lab 4</div>
+                        <h3 class="lab-title">Self-Introduction</h3>
+                        <ul class="skills-list">
+                            <li>Strong first impression</li>
+                            <li>Concise communication</li>
+                            <li>Highlighting key skills</li>
+                            <li>Balancing personal & professional details</li>
+                            <li>Confidence</li>
+                            <li>Proper tone & pace</li>
+                            <li>Avoiding unnecessary info</li>
+                            <li>Customizing introduction</li>
+                            <li>Professional language</li>
+                            <li>Positive body language</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments" class="assignments">
+        <div class="container">
+            <h2 class="section-title">Assignments</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; max-width: 800px;">
+                Download my submitted assignments and cover letter
+            </p>
+            <div class="assignments-grid">
+                <div class="assignment-card">
+                    <div class="assignment-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="assignment-title">Cover Letter</h3>
+                    <p class="assignment-desc">Professional cover letter showcasing my skills and PESE learning</p>
+                    <a href="#" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+                <div class="assignment-card">
+                    <div class="assignment-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="assignment-title">Assignment 1</h3>
+                    <p class="assignment-desc">E-Portfolio documentation and self-assessment</p>
+                    <a href="#" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+                <div class="assignment-card">
+                    <div class="assignment-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="assignment-title">Assignment 2</h3>
+                    <p class="assignment-desc">Presentation skills and slides</p>
+                    <a href="#" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Technical Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <i class="fas fa-store" style="font-size: 4rem; color: #667eea; margin-bottom: 1.5rem;"></i>
+                    <h3>Campus Marketplace</h3>
+                    <p>Rent, buy, sell platform for students - PHP + MySQL</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#" class="project-link" style="background: #667eea; color: white; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; flex: 1; text-align: center;">Demo</a>
+                        <a href="#" class="project-link" style="background: #667eea; color: white; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; flex: 1; text-align: center;">Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: #667eea; margin-bottom: 1.5rem;"></i>
+                    <h3>Campus Navigation</h3>
+                    <p>Interactive campus maps - HTML/CSS/JS</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://korpse2001.github.io/campus-navigation/" class="project-link" style="background: #667eea; color: white; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; flex: 1; text-align: center;" target="_blank">Live</a>
+                        <a href="https://github.com/korpse2001/campus-navigation" class="project-link" style="background: #667eea; color: white; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; flex: 1; text-align: center;" target="_blank">Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 3rem;">
+                <a href="mailto:Sahil.gandi456@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                    <span>Sahil.gandi456@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sahil-rajput-6611a7397/" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/korpse2001" class="contact-link" target="_blank">
+                    <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: rgba(0,0,0,0.8); color: white; text-align: center; padding: 2rem 0;">
+        <div class="container">
+            <p>© 2024 Sahil Singh Gandi | B.Tech CSE 4th Sem | PESE Lab E-Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+            });
+        });
+
+        // Animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.lab-card, .assignment-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
